@@ -45,3 +45,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   items.forEach(item => observer.observe(item));
 });
+
+window.addEventListener('load', function() {
+  const loadingScreen = document.getElementById('loadingScreen');
+  
+  // Minimum 1 saniye göster (çok hızlı kaybolmasın)
+  setTimeout(() => {
+    loadingScreen.classList.add('hidden');
+    
+    // Animasyon bittikten sonra DOM'dan tamamen kaldır
+    setTimeout(() => {
+      loadingScreen.style.display = 'none';
+    }, 500);
+  }, 1000);
+});
