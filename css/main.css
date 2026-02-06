@@ -189,7 +189,7 @@ nav ul li:last-child {
 #about {
   scroll-margin-top: 0px;
   position: relative;
-  min-height: 100vh;
+  height: 100vh; /* 🔥 min-height yerine height */
   background: #111;
   color: white;
 
@@ -202,12 +202,11 @@ nav ul li:last-child {
 #about::before {
   content: "";
   position: absolute;
-  right: -150px;
+  left: -200px;
   top: 0;
   width: 300px;
   height: 100%;
   background: darkorange;
-  transform: skewX(6deg);
   z-index: 9;
 }
 
@@ -218,15 +217,15 @@ nav ul li:last-child {
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start; /* 🔥 space-between yerine flex-start */
 
-  gap: 100px;
+  gap: 40px; /* 🔥 minimum mesafe (artabilir) */
 
   max-width: 1500px;
   width: 100%;
 
-  margin: 0 auto;          /* 🔥 SOLA KAYMA BİTTİ */
-  padding: 100px 60px;
+  margin: 0 auto;
+  padding: 60px 60px 60px 150px;
 
   opacity: 0;
   transform: translateY(80px);
@@ -252,31 +251,31 @@ nav ul li:last-child {
 
 #about p {
   font-size: 1.5rem;
-  line-height: 1.7;
-  margin-bottom: 22px;
+  line-height: 1.5;
+  margin-bottom: 18px;
 }
 
 /* FOTO */
 .about-image {
-  flex-shrink: 0;             /* 🔥 küçülmesin */
+  flex: 1; /* 🔥 kalan alanı doldurur, esner */
+  min-width: 0; /* 🔥 flexbox overflow fix */
   display: flex;
-  align-items: center;        /* 🔥 dikey ortala */
-  justify-content: flex-end;  /* sağa yasla */
+  align-items: center;
+  justify-content: center; /* 🔥 ortalanır */
 }
 
 .about-image img {
   width: 100%;
-  max-width: 1000px;          /* desktop büyük */
+  max-width: 800px; /* 🔥 maksimum boyut */
   height: auto;
   border-radius: 14px;
 }
-
 /* YAN DİKEY YAZI */
 .about-side-text {
   position: absolute;
-  right: 60px;
+  left: 10px;
   top: 50%;
-  transform: translateY(-50%) rotate(-6deg);
+  transform: translateY(-50%);
   writing-mode: vertical-rl;
   z-index: 10;
 
