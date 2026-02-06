@@ -1,0 +1,301 @@
+@font-face {
+  font-family: orbitron;
+  src: url(../assets/font.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: rgb(255, 255, 255);
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+/* Scrollbar */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-y: auto;
+}
+
+:target {
+  scroll-margin-top: 80px;
+}
+
+.header {
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 20px;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.5s ease;  /* 0.5 saniyede geçiş */
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Kararma */
+.header.scrolled {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.headercontainer {
+  display: flex;
+  align-items: center;
+}
+
+.link-header {
+  font-family: orbitron;
+  font-size: 14px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.link-header:hover {
+  color: darkorange;
+}
+
+/* BUTTON */
+.btn {
+  display: inline-block;
+  padding: 14px 36px;
+  background: black;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+  font-family: orbitron;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+#logo {
+  width: 50px;
+  height: auto;
+  margin-right: 20px;
+}
+
+#teamnumber {
+  font-family: orbitron;
+  font-size: 25px;
+  color: #ffffff;
+  margin: 0;        /* margin sıfırla */
+  line-height: 1;   /* font yüksekliğini sıkıştır */
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 40px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* HERO SECTION */
+/* HERO SECTION */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  background-image: url("../assets/hero-alt.jpeg");
+  background-size: cover;
+  background-position: center 85%;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column; /* 🔥 dikey hizalama */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 500px 20px 0; /* 🔥 üst boşluk */
+}
+
+/* GRADIENT OVERLAY */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.8) 0%,
+      rgba(0, 0, 0, 0.5) 50%,
+      rgba(255, 140, 0, 1) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.8) 0%,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(0, 0, 0, 0.8) 100%
+    );
+}
+
+/* 🔥 H1 için yeni stil */
+.hero h1 {
+  position: relative;
+  z-index: 1;
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  font-family: orbitron;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 850px;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  font-family: orbitron;
+}
+
+#slogan {
+  color: #000000;
+  font-weight: bold;
+}
+
+.logo {
+  height: 50px;
+}
+
+nav ul li:last-child {
+  margin-right: 0px;
+}
+
+
+#about {
+  scroll-margin-top: 0px;
+  position: relative;
+  min-height: 100vh;
+  background: #111;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* TURUNCU EĞİK ŞERİT */
+#about::before {
+  content: "";
+  position: absolute;
+  right: -150px;
+  top: 0;
+  width: 300px;
+  height: 100%;
+  background: darkorange;
+  transform: skewX(6deg);
+  z-index: 9;
+}
+
+/* ANA WRAPPER (ANİMASYONLU) */
+.about-wrapper {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 100px;
+
+  max-width: 1500px;
+  width: 100%;
+
+  margin: 0 auto;          /* 🔥 SOLA KAYMA BİTTİ */
+  padding: 100px 60px;
+
+  opacity: 0;
+  transform: translateY(80px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.about-wrapper.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* METİN */
+.about-content {
+  flex: 0 0 600px;     /* 🔥 SABİT ama makul */
+  max-width: 600px;
+}
+
+#about h1 {
+  font-family: orbitron;
+  font-size: 4rem;
+  margin-bottom: 24px;
+}
+
+#about p {
+  font-size: 1.5rem;
+  line-height: 1.7;
+  margin-bottom: 22px;
+}
+
+/* FOTO */
+.about-image {
+  flex-shrink: 0;             /* 🔥 küçülmesin */
+  display: flex;
+  align-items: center;        /* 🔥 dikey ortala */
+  justify-content: flex-end;  /* sağa yasla */
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 1000px;          /* desktop büyük */
+  height: auto;
+  border-radius: 14px;
+}
+
+/* YAN DİKEY YAZI */
+.about-side-text {
+  position: absolute;
+  right: 60px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-6deg);
+  writing-mode: vertical-rl;
+  z-index: 10;
+
+  font-family: orbitron;
+  font-size: 72px;
+  letter-spacing: 10px;
+  color: #111;
+
+  pointer-events: none;
+}
+
+/* SCROLL ANIMATION */
+.fade-up {
+  opacity: 0;
+  transform: translateY(80px);
+  transition: all 0.9s ease;
+}
+
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}

@@ -1,0 +1,277 @@
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 6px;
+}
+
+.hamburger span {
+  width: 26px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+}
+
+/* MOBILE FULLSCREEN MENU */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 80%;
+  max-width: 320px;
+  background: rgba(0, 0, 0, 0.97);
+  transform: translateX(100%);
+  transition: transform 0.4s ease;
+  z-index: 1500;
+  padding-top: 120px;
+}
+
+.mobile-menu.active {
+  transform: translateX(0);
+}
+
+.mobile-menu ul {
+  list-style: none;
+  padding: 0 30px;
+}
+
+.mobile-menu li {
+  margin-bottom: 24px;
+}
+
+.mobile-menu a {
+  font-family: orbitron;
+  font-size: 22px;
+  color: white;
+}
+
+.mobile-menu a:hover {
+  color: orange;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  z-index: 3000;
+}
+
+.hamburger span {
+  width: 26px;
+  height: 3px;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -8px);
+}
+
+
+/* MOBILE */
+@media (max-width: 768px) {
+.hero {
+    position: relative;      /* absolute için gerekli */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;  /* slogan+buton altta */
+    align-items: center;
+    text-align: center;
+    padding: 0;              /* üstten boşluk yok */
+    background-image: url("../assets/hero-mobile.jpeg");
+    background-size: cover;
+    background-position: center 40%;
+    background-repeat: no-repeat;
+}
+
+/* Başlığı en üste sabitle */
+.hero h1 {
+    position: absolute;
+    top: 80px;                  /* ekranın en üstü */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.4rem;
+    margin: 0;               /* margin sıfır */
+}
+
+/* Alt container: slogan + buton */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1vh;               /* slogan ve buton arası */
+    margin-bottom: 3vh;     /* alt boşluk */
+    width: 100%;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin: 0;
+    color: darkorange;
+}
+
+.hero-btn a {
+    padding: 12px 28px;
+    font-size: 1rem;
+}
+
+    #slogan {
+        color: rgb(0, 0, 0);
+    }
+
+
+    nav {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;      /* 🔥 hamburger AÇIK */
+    }
+
+
+  .about-wrapper {
+    flex-direction: column;
+    gap: 40px;
+
+    margin-left: 0;
+    padding: 80px 24px;
+  }
+
+    .about-content {
+    width: 100%;          /* 🔥 artık ekran kadar */
+    max-width: 100%;
+  }
+
+  .about-image {
+    position: static;
+    transform: none;
+    margin-top: 30px;
+  }
+
+  .about-image img {
+    width: 100%;
+  }
+
+  /* mobilde yan yazı ve şerit yok */
+  #about::before,
+  .about-side-text {
+    display: none;
+  }
+
+  #about h1 {
+    font-size: 2.5rem;
+  }
+
+  #about p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px){
+    #about::before {
+        display: none;
+    }
+
+      #about {
+    gap: 30px;
+  }
+
+  .about-wrapper{
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .about-wrapper {
+    flex-direction: column;   /* 🔥 ALT ALTA */
+    gap: 40px;
+  }
+
+  .about-content {
+    width: 100%;
+    max-width: 700px;
+    text-align: left;
+  }
+
+  .about-image {
+    position: static;         /* absolute KAPAT */
+    transform: none;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .about-image img {
+    width: 100%;
+    max-width: 500px;         /* tablet için ideal */
+  }
+
+    .about-side-text{
+        display: none;
+    }
+
+    nav {
+        display: none;
+    }
+      .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    cursor: pointer;
+    z-index: 3001;
+  }
+
+  .hamburger span {
+    width: 30px;
+    height: 3px;
+    background: white;
+    border-radius: 3px;
+  }
+
+  /* TABLET MENÜ */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -60%;
+    width: 60%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.96);
+    padding: 140px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+    transition: right 0.35s ease;
+    z-index: 3000;
+  }
+
+  .mobile-menu.active {
+    right: 0;
+  }
+
+  .mobile-menu a {
+    font-family: orbitron;
+    font-size: 1.7rem;
+    color: white;
+  }
+
+  .mobile-menu .close {
+    position: absolute;
+    top: 32px;
+    right: 28px;
+    font-size: 34px;
+    color: white;
+    cursor: pointer;
+    z-index: 3002;
+  }
+}
